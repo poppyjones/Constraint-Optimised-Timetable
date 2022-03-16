@@ -1,0 +1,25 @@
+{
+    "description": "1 Course, 10 hours, 4 hours fixed (Wednesday from 10-14)",
+    "fixedActivities": {
+        "MON": {},
+        "TUE": {},
+        "WED": {
+            "10" : "Lecture 1",
+            "11" : "Lecture 2",
+            "12" : "Excersises 1",
+            "13" : "Excersises 2"
+        },
+        "THU": {},
+        "FRI": {},
+        "SAT": {},
+        "SUN": {}
+    },
+    "flexActivities": [
+        "Flex 1",
+        "Flex 2",
+        "Flex 3",
+        "Flex 4",
+        "Flex 5",
+        "Flex 6"
+    ]
+}

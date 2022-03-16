@@ -1,0 +1,20 @@
+{
+    "description": "5 Fixed Activities, all on Monday.",
+    "fixedActivities": {
+        "MON": {
+            "10": "Course A",
+            "11": "Course A",
+            "12": "Course A",
+            "13": "Course A",
+            "14": "Course A"
+        },
+        "TUE": {},
+        "WED": {},
+        "THU": {},
+        "FRI": {},
+        "SAT": {},
+        "SUN": {}
+    },
+    "flexActivities": [
+    ]
+}

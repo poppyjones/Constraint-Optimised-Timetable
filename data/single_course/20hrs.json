@@ -1,0 +1,36 @@
+{
+    "description": "20 hours course (15 etcs), 8 hours fixed",
+    "fixedActivities": {
+        "MON": {},
+        "TUE": {
+            "14": "Lecture 1",
+            "15": "Lecture 2",
+            "16": "Excersises 1",
+            "17": "Excersises 2"
+        },
+        "WED": {},
+        "THU": {},
+        "FRI": {
+            "8": "Lecture 3",
+            "9": "Lecture 4",
+            "10": "Excersises 5",
+            "11": "Excersises "
+        },
+        "SAT": {},
+        "SUN": {}
+    },
+    "flexActivities": [
+        "Flex 1",
+        "Flex 2",
+        "Flex 3",
+        "Flex 4",
+        "Flex 5",
+        "Flex 6",
+        "Flex 7",
+        "Flex 8",
+        "Flex 9",
+        "Flex 10",
+        "Flex 11",
+        "Flex 12"
+    ]
+}

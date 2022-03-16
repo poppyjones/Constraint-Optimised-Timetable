@@ -1,0 +1,19 @@
+{
+    "description": "5 Flex Activities.",
+    "fixedActivities": {
+        "MON": {},
+        "TUE": {},
+        "WED": {},
+        "THU": {},
+        "FRI": {},
+        "SAT": {},
+        "SUN": {}
+    },
+    "flexActivities": [
+        "Course A1",
+        "Course A2",
+        "Course A3",
+        "Course A4",
+        "Course A5"
+    ]
+}

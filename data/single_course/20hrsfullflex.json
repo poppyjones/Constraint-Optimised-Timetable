@@ -1,0 +1,37 @@
+{
+    "description": "20 hr fully flexible course (project or thesis)",
+    "fixedActivities": {
+        "MON": {},
+        "TUE": {},
+        "WED": {},
+        "THU": {},
+        "FRI": {},
+        "SAT": {},
+        "SUN": {}
+    },
+    "flexActivities": [
+        "Flex 1",
+        "Flex 2",
+        "Flex 3",
+        "Flex 4",
+        "Flex 5",
+
+        "Flex 6",
+        "Flex 7",
+        "Flex 8",
+        "Flex 9",
+        "Flex 10",
+
+        "Flex 11",
+        "Flex 12",
+        "Flex 13",
+        "Flex 14",
+        "Flex 15",
+        
+        "Flex 16",
+        "Flex 17",
+        "Flex 18",
+        "Flex 19",
+        "Flex 20"
+    ]
+}
