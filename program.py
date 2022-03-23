@@ -41,17 +41,19 @@ prev_a = mdl.integer_var(name= ("free activity: 0"), domain= range(0, TIMESLOTS)
 all_activities.append(prev_a)
 free.append(prev_a)
 
-for i in range(1,TIMESLOTS - len(all_activities)):
+for i in range(1,1 + TIMESLOTS - len(all_activities)):
     a = mdl.integer_var(name= ("free activity: "+str(i)), domain= range(0, TIMESLOTS))
     all_activities.append(a)
     free.append(a)
     mdl.add(prev_a < a)
     prev_a = a
 
-
-# add variable for each time slot
+# add variables for each time slot
 for i in range(TIMESLOTS):
-    mdl.integer_var(name=(DAYS[i//24] + " kl. " + str(i%24)), domain=range(0,len(all_activities)))
+    all_timeslots.append(mdl.integer_var(name=(DAYS[i//24] + " kl. " + str(i%24)), domain=range(0,len(all_activities))))
+
+# set up channeling
+mdl.add(mdl.inverse(all_activities,all_timeslots))
 
 #-----------------------------------------------------------------------------
 # Add constraints
@@ -63,7 +65,7 @@ for i in range(TIMESLOTS):
 
 # set timeslots for fixed activities
 for i in range(len(fixed)):
-    mdl.add( fixed[i] == fixed_times[i])
+    mdl.add(fixed[i] == fixed_times[i])
 
 # no activities with the same timeslots
 mdl.add(mdl.all_diff(all_activities))
@@ -95,6 +97,8 @@ msol = mdl.solve(TimeLimit=10)
 #-----------------------------------------------------------------------------
 
 
-#solutionformatter.print_timeslots_to_console(msol,all_timeslots)
+#solutionformatter.print_timeslots_to_console(msol,all_timeslots,all_activities)
 
 solutionformatter.print_activities_to_console(msol,fixed,flex)
+
+#solutionformatter.print_non_activities_to_console(msol,free)

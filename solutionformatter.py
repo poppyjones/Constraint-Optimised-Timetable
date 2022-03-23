@@ -22,11 +22,11 @@ def print_non_activities_to_console(msol,free):
         print("Solve status: " + msol.get_solve_status())
 
 
-def print_timeslots_to_console(msol,hrs):
+def print_timeslots_to_console(msol,hrs,activities):
     n = 0
     for hr in hrs:
         if(n%24==0):
-            print(DAYS[n/24])
-        print("  " + hr.name + ": "+ str(msol[hr]))
+            print(DAYS[int(n/24)])
+        print("  " + hr.name + ": "+ activities[msol[hr]].name)
         n = n+1
    
