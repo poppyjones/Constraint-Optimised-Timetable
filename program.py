@@ -1,7 +1,8 @@
 from docplex.cp.model import CpoModel
 import solutionformatter
 import timetableimporter
-from definitions import WEEKEND, TIMESLOTS, DAYS
+import helperfunctions
+from definitions import WEEKEND, TIMESLOTS, DAYS, MON, FRI
 
 #-----------------------------------------------------------------------------
 # Initialize the problem data
@@ -9,8 +10,10 @@ from definitions import WEEKEND, TIMESLOTS, DAYS
 
 activity_names, fixed_times = timetableimporter.from_json()
 
+ACTIVITIES = len(activity_names)
+
 # Empty activity data structures
-all_activities = []
+all_activities = []*ACTIVITIES
 fixed = []
 flex  = []
 free = []
@@ -18,12 +21,18 @@ free = []
 # Empty timeslot data structures
 all_timeslots = []*TIMESLOTS
 
+
 #-----------------------------------------------------------------------------
 # Build the model
 #-----------------------------------------------------------------------------
 
 # Create model
 mdl = CpoModel()
+
+# Add counters to hold penalties and rewards
+
+penalty = mdl.integer_var(0)
+
 
 # Add variable for each activity
 for i in range(len(activity_names)):
@@ -67,15 +76,11 @@ mdl.add(mdl.inverse(all_activities,all_timeslots))
 for i in range(len(fixed)):
     mdl.add(fixed[i] == fixed_times[i])
 
-# no activities with the same timeslots
-mdl.add(mdl.all_diff(all_activities))
-
 #------------------
 # Hard Optional
 #------------------
 
 # Hard no weekend
-
 for fl in flex:
     mdl.add( fl != n for n in WEEKEND)
 
@@ -84,7 +89,14 @@ for fl in flex:
 #------------------
 
 # min/max weekend
-    # give penalties when weekend timeslots are assigned
+# give penalties when weekend timeslots are assigned
+
+# minimize mondays and fridays
+p1 = helperfunctions.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,MON)
+p2 = helperfunctions.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,FRI)
+
+mdl.add(mdl.minimize(p1+p2))
+
 
 #-----------------------------------------------------------------------------
 # Solve Model
@@ -96,9 +108,12 @@ msol = mdl.solve(TimeLimit=10)
 # Output
 #-----------------------------------------------------------------------------
 
-
 #solutionformatter.print_timeslots_to_console(msol,all_timeslots,all_activities)
 
-solutionformatter.print_activities_to_console(msol,fixed,flex)
+solutionformatter.print_non_empty_timeslots_to_console(msol,all_timeslots,all_activities,free)
+
+#solutionformatter.print_activities_to_console(msol,fixed,flex)
 
 #solutionformatter.print_non_activities_to_console(msol,free)
+#
+#solutionformatter.print_penalties_to_console(msol,penalty)

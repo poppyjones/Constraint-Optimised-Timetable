@@ -30,3 +30,16 @@ def print_timeslots_to_console(msol,hrs,activities):
         print("  " + hr.name + ": "+ activities[msol[hr]].name)
         n = n+1
    
+def print_non_empty_timeslots_to_console(msol,hrs,activities,free):
+    n = 0
+    free_set = set(free)
+    for hr in hrs:
+        if(n%24==0):
+            print(DAYS[int(n/24)])
+        if(activities[msol[hr]] not in free_set):
+            print("  " + hr.name + ": "+ activities[msol[hr]].name)
+        n = n+1
+   
+def print_penalties_to_console(msol,penalty):
+    print("PENALTIES:")
+    print(msol[penalty])
