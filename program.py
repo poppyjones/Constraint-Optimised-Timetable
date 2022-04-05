@@ -1,6 +1,7 @@
 from docplex.cp.model import CpoModel
 import solutionformatter
 import timetableimporter
+import optionsbuilder
 import helperfunctions
 from definitions import WEEKEND, TIMESLOTS, DAYS, MON, FRI
 
@@ -28,11 +29,6 @@ all_timeslots = []*TIMESLOTS
 
 # Create model
 mdl = CpoModel()
-
-# Add counters to hold penalties and rewards
-
-penalty = mdl.integer_var(0)
-
 
 # Add variable for each activity
 for i in range(len(activity_names)):
@@ -76,44 +72,27 @@ mdl.add(mdl.inverse(all_activities,all_timeslots))
 for i in range(len(fixed)):
     mdl.add(fixed[i] == fixed_times[i])
 
-#------------------
-# Hard Optional
-#------------------
-
-# Hard no weekend
-for fl in flex:
-    mdl.add( fl != n for n in WEEKEND)
-
-#------------------
-# Soft Optional
-#------------------
-
-# min/max weekend
-# give penalties when weekend timeslots are assigned
-
-# minimize mondays and fridays
-p1 = helperfunctions.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,MON)
-p2 = helperfunctions.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,FRI)
-
-mdl.add(mdl.minimize(p1+p2))
-
+optionsbuilder.build(mdl,all_timeslots,ACTIVITIES,flex)
 
 #-----------------------------------------------------------------------------
 # Solve Model
 #-----------------------------------------------------------------------------
 
-msol = mdl.solve(TimeLimit=10)
+msol = mdl.solve(TimeLimit=1000)
 
 #-----------------------------------------------------------------------------
 # Output
 #-----------------------------------------------------------------------------
 
-#solutionformatter.print_timeslots_to_console(msol,all_timeslots,all_activities)
+if msol:
+    print("Solution:")
+    #solutionformatter.print_timeslots_to_console(msol,all_timeslots,all_activities)
 
-solutionformatter.print_non_empty_timeslots_to_console(msol,all_timeslots,all_activities,free)
+    solutionformatter.print_non_empty_timeslots_to_console(msol,all_timeslots,all_activities,free)
 
-#solutionformatter.print_activities_to_console(msol,fixed,flex)
+    #solutionformatter.print_activities_to_console(msol,fixed,flex)
 
-#solutionformatter.print_non_activities_to_console(msol,free)
-#
-#solutionformatter.print_penalties_to_console(msol,penalty)
+    #solutionformatter.print_non_activities_to_console(msol,free)
+
+else:
+    print("Solve status: " + msol.get_solve_status())
