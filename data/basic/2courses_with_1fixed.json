@@ -1,0 +1,29 @@
+{
+    "description": "2 courses each with fixed activity at 10:00 on Monday and Thursday respectively.",
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [[10, "Lecture 1"]],
+                "TUE": [],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 1
+        },
+        "Course B": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [],
+                "THU": [[10, "Lecture 1"]],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 1
+        }
+    }
+}

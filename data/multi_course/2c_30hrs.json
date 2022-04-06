@@ -1,5 +1,5 @@
 {
-    "description": "20 hour course (15 ects), 8 hours fixed",
+    "description": "2 courses. One 20 hour course, 8 hours fixed, One 10 hour course, with four fixed.",
     "courses": {
         "Course A": {
             "fixedActivities": {
@@ -20,6 +20,22 @@
                 "SUN": []
             },
             "flexActivities": 12
+        },
+        "Course B": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [
+                    [10, "Lecture 1"],
+                    [11, "Lecture 2"],
+                    [12, "Excersises 1"],
+                    [13, "Excersises 2"]],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 6
         }
     }
 }

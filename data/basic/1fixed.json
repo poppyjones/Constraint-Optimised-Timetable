@@ -1,0 +1,17 @@
+{
+    "description": "This timetable has a single Fixed Activity on Tuesday at 14. The Activity is associated with \"Course A\". Additionally, there are 2 Flex Activities that must be scheduled.",
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [[14, "Lecture 1"]],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 0
+        }
+    }
+}

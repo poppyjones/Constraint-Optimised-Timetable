@@ -1,29 +1,17 @@
 {
     "description": "5 fixed activities one on each day from Monday to Friday.",
-    "fixedActivities": {
-        "MON": {
-            "10": "Course A"
-        },
-        "TUE": {
-            "10": "Course A"
-        },
-        "WED": {
-            "10": "Course A"
-        },
-        "THU": {
-            "10": "Course A"
-        },
-        "FRI": {
-            "10": "Course A"
-        },
-        "SAT": {},
-        "SUN": {}
-    },
-    "flexActivities": [
-        "Course A1",
-        "Course A2",
-        "Course A3",
-        "Course A4",
-        "Course A5"
-    ]
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [[10, "Lecture 1"]],
+                "TUE": [[10, "Lecture 2"]],
+                "WED": [[10, "Lecture 3"]],
+                "THU": [[10, "Lecture 4"]],
+                "FRI": [[10, "Lecture 5"]],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 5
+        }
+    }
 }

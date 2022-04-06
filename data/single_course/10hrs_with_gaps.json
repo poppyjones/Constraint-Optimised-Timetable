@@ -1,13 +1,13 @@
 {
-    "description": "1 Course: 10 hours, 4 hours fixed (Wednesday from 10-14)",
+    "description": "1 Course, 10 hours, 4 hours fixed with 2 hours gap between (Wednesday 8-9 and 12-13)",
     "courses": {
         "Course A": {
             "fixedActivities": {
                 "MON": [],
                 "TUE": [],
                 "WED": [
-                    [ 10, "Lecture 1" ],
-                    [ 11, "Lecture 2" ],
+                    [ 8, "Lecture 1" ],
+                    [ 9, "Lecture 2" ],
                     [ 12, "Excersises 1"],
                     [ 13, "Excersises 2"]
                 ],

@@ -1,0 +1,29 @@
+{
+    "description": "2 courses each with two flex activities.",
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 2
+        },
+        "Course B": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 2
+        }
+    }
+}

@@ -9,12 +9,12 @@ from definitions import WEEKEND, TIMESLOTS, DAYS, MON, FRI
 # Initialize the problem data
 #-----------------------------------------------------------------------------
 
-activity_names, fixed_times = timetableimporter.from_json()
+#activity_names, fixed_times = timetableimporter.from_json()
 
-ACTIVITIES = len(activity_names)
+imported_courses, ACTIVITIES = timetableimporter.from_json()
 
 # Empty activity data structures
-all_activities = []*ACTIVITIES
+all_activities = []
 fixed = []
 flex  = []
 free = []
@@ -30,18 +30,34 @@ all_timeslots = []*TIMESLOTS
 # Create model
 mdl = CpoModel()
 
-# Add variable for each activity
-for i in range(len(activity_names)):
-    a = mdl.integer_var(name= activity_names[i], domain= range(0, TIMESLOTS))
-    all_activities.append(a)
-    if i < len(fixed_times):
+for c in imported_courses:
+    # fixed
+    for fi in c[1]:
+        a = mdl.integer_var(name= fi[0], domain= fi[1])
+        all_activities.append(a)
         fixed.append(a)
-    else:
+    #flex
+    if(len(c[2])>1):
+        a = mdl.integer_var(name= c[2].pop(0), domain= range(0, TIMESLOTS))
+        all_activities.append(a)
         flex.append(a)
+        prev_a = a
+        for fl in c[2]:
+            a = mdl.integer_var(name= fl, domain= range(0, TIMESLOTS))
+            all_activities.append(a)
+            flex.append(a)
+            #break symmetry
+            mdl.add(prev_a < a)
+            prev_a = a
+    else:
+        for fl in c[2]:
+            a = mdl.integer_var(name= fl, domain= range(0, TIMESLOTS))
+            all_activities.append(a)
+            flex.append(a)
 
 # Add variables for each free activity
 # - assumes at least one empty slot
-# - keep them sorted to minimise nr. of solutions
+# - keeps them sorted to minimise nr. of solutions
 prev_a = mdl.integer_var(name= ("free activity: 0"), domain= range(0, TIMESLOTS))
 all_activities.append(prev_a)
 free.append(prev_a)
@@ -50,6 +66,7 @@ for i in range(1,1 + TIMESLOTS - len(all_activities)):
     a = mdl.integer_var(name= ("free activity: "+str(i)), domain= range(0, TIMESLOTS))
     all_activities.append(a)
     free.append(a)
+    # break symmetry
     mdl.add(prev_a < a)
     prev_a = a
 
@@ -64,21 +81,13 @@ mdl.add(mdl.inverse(all_activities,all_timeslots))
 # Add constraints
 #-----------------------------------------------------------------------------
 
-#------------------
-# Hard Mandatory
-#------------------
-
-# set timeslots for fixed activities
-for i in range(len(fixed)):
-    mdl.add(fixed[i] == fixed_times[i])
-
 optionsbuilder.build(mdl,all_timeslots,ACTIVITIES,flex)
 
 #-----------------------------------------------------------------------------
 # Solve Model
 #-----------------------------------------------------------------------------
 
-msol = mdl.solve(TimeLimit=1000)
+msol = mdl.solve(TimeLimit=10)
 
 #-----------------------------------------------------------------------------
 # Output
@@ -86,6 +95,7 @@ msol = mdl.solve(TimeLimit=1000)
 
 if msol:
     print("Solution:")
+    
     #solutionformatter.print_timeslots_to_console(msol,all_timeslots,all_activities)
 
     solutionformatter.print_non_empty_timeslots_to_console(msol,all_timeslots,all_activities,free)

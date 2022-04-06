@@ -9,7 +9,7 @@ score = []
 
 def hard_no_weekend(mdl,flex):
     for fl in flex:
-        mdl.add( fl != n for n in d.WEEKEND)
+        mdl.add( fl != h for h in d.WEEKEND)
 
 #------------------
 # Soft Optional
@@ -63,13 +63,13 @@ def add_disliked_hours(mdl,all_timeslots,ACTIVITIES, h0, h1):
 def build(mdl, all_timeslots, ACTIVITIES, flex):
     # TODO: IMPORT FROM OPTIONSIMPORTER
     hard_no_weekend(mdl,flex)
-    soft_max_daily_hours(mdl,all_timeslots,ACTIVITIES,7)
+    #soft_max_daily_hours(mdl,all_timeslots,ACTIVITIES,7)
     #soft_min_max_day(mdl,all_timeslots,ACTIVITIES, d.TUE, minimize=False)
     
-    #add_preffered_hours(mdl,all_timeslots,ACTIVITIES,10,12)
-    #add_preffered_hours(mdl,all_timeslots,ACTIVITIES,13,16)
-    #add_preffered_hours(mdl,all_timeslots,ACTIVITIES,10,15)
-    #add_disliked_hours(mdl,all_timeslots,ACTIVITIES,12,13)
-    #add_disliked_hours(mdl,all_timeslots,ACTIVITIES,12,13)
+    add_preffered_hours(mdl,all_timeslots,ACTIVITIES,10,12)
+    add_preffered_hours(mdl,all_timeslots,ACTIVITIES,13,16)
+    add_preffered_hours(mdl,all_timeslots,ACTIVITIES,10,15)
+    add_disliked_hours(mdl,all_timeslots,ACTIVITIES,12,13)
+    add_disliked_hours(mdl,all_timeslots,ACTIVITIES,12,13)
 
     mdl.add(mdl.maximize(sum(score)))

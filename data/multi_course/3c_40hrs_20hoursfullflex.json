@@ -1,0 +1,49 @@
+{
+    "description": "3 courses. Two 10 hour courses, with four fixed activities. One 20 hour project or thesis.",
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [
+                    [14, "Lecture 1"],
+                    [15, "Lecture 2"],
+                    [16, "Excersises 1"],
+                    [17, "Excersises 2"]],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 6
+        },
+        "Course B": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [
+                    [10, "Lecture 1"],
+                    [11, "Lecture 2"],
+                    [12, "Excersises 1"],
+                    [13, "Excersises 2"]],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 6
+        },
+        "Course C": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 20
+        }
+    }
+}

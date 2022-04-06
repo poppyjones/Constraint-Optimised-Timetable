@@ -1,0 +1,57 @@
+{
+    "description": "3 courses. One 20 hour course, 8 hours fixed, Two 10 hour courses, with four fixed.",
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [
+                    [14, "Lecture 1"],
+                    [15, "Lecture 2"],
+                    [16, "Excersises 1"],
+                    [17, "Excersises 2"]],
+                "WED": [],
+                "THU": [],
+                "FRI": [
+                    [8, "Lecture 3"],
+                    [9, "Lecture 4"],
+                    [10, "Excersises 5"],
+                    [11, "Excersises 6"]],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 12
+        },
+        "Course B": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [],
+                "WED": [
+                    [10, "Lecture 1"],
+                    [11, "Lecture 2"],
+                    [12, "Excersises 1"],
+                    [13, "Excersises 2"]],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 6
+        },
+        "Course C": {
+            "fixedActivities": {
+                "MON": [],
+                "TUE": [
+                    [8, "Lecture 1"],
+                    [9, "Lecture 2"]],
+                "WED": [],
+                "THU": [],
+                "FRI": [
+                    [12, "Lecture 3"],
+                    [13, "Lecture 4"]],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 6
+        }
+    }
+}

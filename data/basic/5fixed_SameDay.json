@@ -1,20 +1,23 @@
 {
     "description": "5 Fixed Activities, all on Monday.",
-    "fixedActivities": {
-        "MON": {
-            "10": "Course A",
-            "11": "Course A",
-            "12": "Course A",
-            "13": "Course A",
-            "14": "Course A"
-        },
-        "TUE": {},
-        "WED": {},
-        "THU": {},
-        "FRI": {},
-        "SAT": {},
-        "SUN": {}
-    },
-    "flexActivities": [
-    ]
+    "courses": {
+        "Course A": {
+            "fixedActivities": {
+                "MON": [
+                    [10,"Lecture 1"],
+                    [11,"Lecture 2"],
+                    [12,"Lecture 3"],
+                    [13,"Lecture 4"],
+                    [14,"Lecture 5"]
+                ],
+                "TUE": [],
+                "WED": [],
+                "THU": [],
+                "FRI": [],
+                "SAT": [],
+                "SUN": []
+            },
+            "flexActivities": 0
+        }
+    }
 }

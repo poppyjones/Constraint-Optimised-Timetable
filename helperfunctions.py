@@ -15,7 +15,7 @@ def get_timeslots_in_interval(all_timeslots, h0, h1):
 def sum_of_activities_in_timeslots(mdl, timeslots, ACTIVITIES, increment=1):
     counter = []
     for t in timeslots:
-        x = mdl.binary_var()
+        x = mdl.integer_var()
         mdl.add( ((t <= ACTIVITIES) & (x == increment )) | ((t > ACTIVITIES) & (x == 0)) )
         counter.append(x)
     return sum(counter)
