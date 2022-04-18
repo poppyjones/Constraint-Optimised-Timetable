@@ -1,4 +1,4 @@
-from definitions import days_to_hrs, DAYS
+from definitions import days_to_hrs, DAYS, TIMESLOTS
 
 def get_timeslots_of_day(all_timeslots,day):
     ar = all_timeslots[days_to_hrs[day]:days_to_hrs[day]+24]
@@ -22,3 +22,8 @@ def sum_of_activities_in_timeslots(mdl, timeslots, ACTIVITIES, increment=1):
 
 def sum_of_activities_in_day(mdl,all_timeslots, ACTIVITIES, day, increment=1):
     return sum_of_activities_in_timeslots(mdl,get_timeslots_of_day(all_timeslots,day), ACTIVITIES, increment)
+
+def get_distance(mdl,a0,a1):
+    dist = mdl.integer_var()
+    mdl.add(((a0 <= a1) & (dist == (a1 - a0)) ) | ((a0 > a1) & (dist == (TIMESLOTS - (a0 - a1)))))
+    return dist

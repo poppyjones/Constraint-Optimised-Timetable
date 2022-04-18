@@ -5,7 +5,8 @@ def from_json():
     print("please enter filename:")
     name = input()
 
-    f = open(name, "r")
-    d = json.load(f)
-    f.close()
+    with open(name, "r") as f:
+        f = open(name, "r")
+        d = json.load(f)
+    
     return d

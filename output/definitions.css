@@ -1,0 +1,39 @@
+:root{
+	/*
+	 * Global Variables
+	 */
+	--primary-color: #64C3E6;
+	--primary-color-darker: #5AAFCF;
+	--primary-color-darker2: #509CB8;
+	--secondary-color: #F7F7F7;
+	--secondary-color-darker: #dddddd;
+	--tertiary-color: #2F3061;
+	--highlight-color: #0092C7;
+	--accent-color: #343434;
+	--confirmation-color: #6FCC6F;
+	--confirmation-color-light: #99cf97;
+	--clicked-color: rgb(172, 172, 172);
+
+    --courseA-fixed-color: #5052c9;
+    --courseA-flex-color: #8ebbff;
+    --courseB-fixed-color: #9d50c9;
+    --courseB-flex-color: #aa6fcc;
+    --courseC-fixed-color: #c95078;
+    --courseC-flex-color: #da86a2;
+    --courseD-fixed-color: #45b172;
+    --courseD-flex-color: #70b48d;
+
+
+	--alert-color: #E05757;
+	--alert-color-lighter: #efabab;
+	--space-xs: 4px;
+	--space-s: 8px;
+	--space-m: 16px;
+	--space-l: 32px;
+	--space-xl: 64px;
+	/*
+	 * Font
+	 */
+
+	font-family: 'Roboto';
+}

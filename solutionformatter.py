@@ -1,4 +1,5 @@
 from definitions import DAYS
+from gui import build_output_gui
 
 def print_activities_to_console(msol,fixed, flex):
     print(" Fixed:")
@@ -32,3 +33,23 @@ def print_non_empty_timeslots_to_console(msol,hrs,activities,free):
         if(activities[msol[hr]] not in free_set):
             print("  " + hr.name + ": "+ activities[msol[hr]].name)
         n = n+1
+
+def print_activities_by_course(msol,courses):
+    for c in courses:
+        print(c.name)
+        sorted_activities = sorted((c.flex + c.fixed), key = lambda e: msol[e])
+        for s in sorted_activities:
+            print("  " + s.name + ": "+ str(msol[s]) + "  -> " + DAYS[msol[s]//24] + " kl. " + str(msol[s]%24))
+
+def create_html_timetable(msol,courses):
+    w, h = 7, 24
+    timetable = [[0 for _ in range(w)] for _ in range(h)]
+    for c in courses:
+        for f in c.fixed:
+            hr = msol[f]
+            timetable[hr%24][hr//24] = (f"fixed {c.name}",f.name)
+        for f in c.flex:
+            hr = msol[f]
+            timetable[hr%24][hr//24] = (f"flex {c.name}",f.name)
+
+    build_output_gui(timetable)

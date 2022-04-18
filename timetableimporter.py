@@ -6,9 +6,8 @@ def from_json():
     print("please enter filename:")
     name = input()
 
-    f = open(name, "r")
-    d = json.load(f)
-    f.close()
+    with open(name, "r") as f:
+        d = json.load(f)
 
     courses = []
     a = 0
@@ -37,7 +36,6 @@ def from_json():
     print("  Number of courses: " + str(len(courses)))
     print("  Number of activities: " + str(a))
     return courses, a
-    #return (all_activities,fixed_activities)
     
 def from_file():
     raise NotImplementedError()
