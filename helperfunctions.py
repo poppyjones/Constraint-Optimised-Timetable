@@ -27,3 +27,9 @@ def get_distance(mdl,a0,a1):
     dist = mdl.integer_var()
     mdl.add(((a0 <= a1) & (dist == (a1 - a0)) ) | ((a0 > a1) & (dist == (TIMESLOTS - (a0 - a1)))))
     return dist
+
+def check_distance_within_boundary(mdl,a0,a1,max_distance):
+    d = get_distance(mdl,a0, a1)
+    accepted = mdl.integer_var()
+    mdl.add(((d <= max_distance) & (accepted == 1 )) | ((d > max_distance) & (accepted == 0)))
+    return accepted
