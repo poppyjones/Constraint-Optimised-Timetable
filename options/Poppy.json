@@ -1,0 +1,27 @@
+{
+    "domain restrictions":{
+        "sleep start": 21,
+        "sleep end": 8,
+        "remove weekend": true,
+        "otherActivities": {
+            "MON": [],
+            "TUE": [[19, "Roller Derby"],[20, "Roller Derby"]],
+            "WED": [[12, "Analog"],[13, "Analog"]],
+            "THU": [],
+            "FRI": [[20, "Roller Derby"],[21, "Roller Derby"]],
+            "SAT": [],
+            "SUN": []
+        }
+    },
+    "preferences":{
+        "preferred hours": [[9,16],[19,21]],
+        "disliked hours" : [[12,13]],
+        "preferred days" : ["MON"],
+        "disliked days"  : ["FRI"],
+        "neighborhood"   : [24],
+        "max daily hours" : {
+            "hard": 10,
+            "soft": 8
+        }
+    }
+}

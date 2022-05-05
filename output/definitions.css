@@ -14,16 +14,11 @@
 	--confirmation-color-light: #99cf97;
 	--clicked-color: rgb(172, 172, 172);
 
-    --courseA-fixed-color: #5052c9;
-    --courseA-flex-color: #8ebbff;
-    --courseB-fixed-color: #9d50c9;
-    --courseB-flex-color: #aa6fcc;
-    --courseC-fixed-color: #c95078;
-    --courseC-flex-color: #da86a2;
-    --courseD-fixed-color: #45b172;
-    --courseD-flex-color: #70b48d;
-
-
+    --fixed-color: #5052c9;
+    --flex-color: #8ebbff;
+    --other-color: #9d50c9;
+    --blocked-color: #c95078;
+    
 	--alert-color: #E05757;
 	--alert-color-lighter: #efabab;
 	--space-xs: 4px;

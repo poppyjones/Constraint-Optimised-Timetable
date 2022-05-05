@@ -13,8 +13,10 @@
 	padding: 8px;
   }
   
-  .fixed {background-color: var(--courseA-fixed-color);}
-  .flex  {background-color: var(--courseA-flex-color);}
+  .fixed    {background-color: var(--fixed-color);}
+  .flex     {background-color: var(--flex-color);}
+  .blocked  {background-color: var(--blocked-color);}
+  .other    {background-color: var(--other-color);}
 
   #timetable th {
 	text-align: left;

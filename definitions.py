@@ -1,10 +1,3 @@
-days_to_nr = {"MON": 0,
-            "TUE": 1,
-            "WED": 2,
-            "THU": 3,
-            "FRI": 4,
-            "SAT": 5,
-            "SUN": 6}
 days_to_hrs = {"MON": (0*24),
             "TUE": (1*24),
             "WED": (2*24),
@@ -22,3 +15,9 @@ SUN = "SUN"
 DAYS = [MON, TUE, WED, THU, FRI, SAT, SUN]
 TIMESLOTS = len(DAYS)*24
 WEEKEND = range(days_to_hrs["SAT"],TIMESLOTS)
+def timeslot_to_day(t):
+    return DAYS[t//24]
+def timeslot_to_hr(t):
+    return t%24
+def timeslot_to_string(t):
+    return f"{timeslot_to_day(t)} kl. {timeslot_to_hr(t)}".format(t)

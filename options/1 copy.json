@@ -1,0 +1,27 @@
+{
+    "domain restrictions":{
+        "sleep start": 22,
+        "sleep end": 9,
+        "remove weekend": true,
+        "otherActivities": {
+            "MON": [],
+            "TUE": [19,20],
+            "WED": [],
+            "THU": [],
+            "FRI": [20,21],
+            "SAT": [],
+            "SUN": []
+        }
+    },
+    "preferences":{
+        "preferred hours": [],
+        "disliked hours" : [],
+        "preferred days" : [],
+        "disliked days"  : [],
+        "neighborhood"   : [],
+        "max daily hours" : {
+            "hard": 0,
+            "soft": 0
+        }
+    }
+}

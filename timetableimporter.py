@@ -1,12 +1,13 @@
 import json
+import os
 from definitions import days_to_hrs
 
 
 def from_json():
-    print("please enter filename:")
-    name = input()
+    print("please enter filename for data file:")
+    file_name = input()
 
-    with open(name, "r") as f:
+    with open(file_name, "r") as f:
         d = json.load(f)
 
     courses = []
@@ -33,9 +34,11 @@ def from_json():
 
         courses.append((name, fixed_activities, flex_activities))
     print("import complete:")
-    print("  Number of courses: " + str(len(courses)))
-    print("  Number of activities: " + str(a))
-    return courses, a
+    file_name = os.path.basename(file_name)[:-5]
+    print(f"  Filename: {file_name}")
+    print(f"  Number of courses: {str(len(courses))}")
+    print(f"  Number of activities: {str(a)}")
+    return file_name, courses, a
     
 def from_file():
     raise NotImplementedError()
