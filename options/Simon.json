@@ -1,0 +1,36 @@
+{
+    "domain restrictions":{
+        "sleep start": 0,
+        "sleep end": 10,
+        "remove weekend": false,
+        "otherActivities": {
+            "MON": [
+                [19,"Bouldering"],
+                [20,"Bouldering"],
+                [21,"Bouldering"]
+            ],
+            "TUE": [],
+            "WED": [
+                [18,"Bouldering"],
+                [19,"Bouldering"],
+                [20,"Bouldering"]],
+            "THU": [],
+            "FRI": [
+                [9,"Work"],
+                [10,"Work"],
+                [11,"Work"],
+                [12,"Work"],
+                [13,"Work"],
+                [14,"Work"],
+                [15,"Work"],
+                [16,"Work"]],
+            "SAT": [],
+            "SUN": []
+        }
+    },
+    "preferences":{
+        "disliked hours" : [[22,0]],
+        "preferred days"  : ["MON"],
+        "disliked days"  : ["FRI","SAT","SUN"]
+    }
+}

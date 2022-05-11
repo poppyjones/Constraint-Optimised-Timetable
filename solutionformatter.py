@@ -41,6 +41,11 @@ def print_activities_by_course(msol,courses):
         for s in sorted_activities:
             print("  " + s.name + ": "+ str(msol[s]) + "  -> " + DAYS[msol[s]//24] + " kl. " + str(msol[s]%24))
 
+def append_solution(name,msol):
+    
+    with open("output/solutions.csv", "a") as f:
+        f.write(f"{name}, {msol.get_objective_values()[0]}, {msol.get_objective_bounds()[0]}, {msol.get_objective_gaps()[0]}, {msol.get_solve_time()}\n")
+
 def create_html_timetable(msol,name,courses,other, blocked = []):
     w, h = 7, 24
     timetable = [[0 for _ in range(w)] for _ in range(h)]

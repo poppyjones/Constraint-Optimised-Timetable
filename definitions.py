@@ -20,4 +20,4 @@ def timeslot_to_day(t):
 def timeslot_to_hr(t):
     return t%24
 def timeslot_to_string(t):
-    return f"{timeslot_to_day(t)} kl. {timeslot_to_hr(t)}".format(t)
+    return f"{timeslot_to_day(t)}: {timeslot_to_hr(t)}".format(t)

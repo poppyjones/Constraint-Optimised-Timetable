@@ -1,0 +1,7 @@
+{
+    "domain restrictions":{},
+    "preferences":{
+        "preferred hours": [[9,17]],
+        "disliked hours" : [[12,13],[22,6]]
+    }
+}

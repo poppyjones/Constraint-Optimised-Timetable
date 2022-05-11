@@ -1,0 +1,44 @@
+{
+    "domain restrictions":{
+        "sleep start": 22,
+        "sleep end": 9,
+        "remove weekend": true,
+        "otherActivities": {
+            "MON": [
+                [8,"Run"],
+                [20,"Bouldering"],
+                [21,"Bouldering"]
+            ],
+            "TUE": [
+                [12,"Analog"],
+                [13,"Analog"]
+            ],
+            "WED": [
+                [20,"Bouldering"],
+                [21,"Bouldering"]],
+            "THU": [
+                [16,"Python Study Group"],
+                [17,"Python Study Group"]
+            ],
+            "FRI": [
+                [16,"ScrollBar"],
+                [17,"ScrollBar"]
+            ],
+            "SAT": [
+                [13,"Run"]
+            ],
+            "SUN": [
+                [10,"Karate"],
+                [11,"Karate"]
+            ]
+        }
+    },
+    "preferences":{
+        "disliked hours" : [[12,13],[16,17],[19,20]],
+        "neighborhood"   : 48,
+        "max daily hours" : {
+            "hard": 0,
+            "soft": 5
+        }
+    }
+}

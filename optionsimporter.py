@@ -23,7 +23,6 @@ def from_json():
     name = input()
 
     with open(name, "r") as f:
-        f = open(name, "r")
         d = json.load(f)
 
     # Options objects
@@ -63,9 +62,9 @@ def from_json():
             opt.neighborhood = value
         elif(pref_type == "max daily hours"):
             for max_type, value in zip(value.keys(), value.values()):
-                if max_type == "hard max":
+                if max_type == "hard":
                     opt.hard_max = value
-                elif max_type == "soft max":
+                elif max_type == "soft":
                     opt.soft_max = value
 
     name = os.path.basename(name)[:-5]

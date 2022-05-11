@@ -1,0 +1,17 @@
+{
+    "domain restrictions":{
+        "sleep start": 21,
+        "sleep end": 8,
+        "remove weekend": true,
+        "otherActivities": {
+            "MON": [],
+            "TUE": [[18, "Extracurricular"],[19, "Extracurricular"],[20, "Extracurricular"]],
+            "WED": [],
+            "THU": [],
+            "FRI": [],
+            "SAT": [[12, "Extracurricular"],[13, "Extracurricular"]],
+            "SUN": []
+        }
+    },
+    "preferences":{}
+}

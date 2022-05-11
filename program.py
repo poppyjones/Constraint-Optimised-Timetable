@@ -18,7 +18,7 @@ constraintbuilder.build(model, imported_options)
 # Solve Model
 #-----------------------------------------------------------------------------
 
-msol = model.mdl.solve(TimeLimit=10)
+msol = model.mdl.solve(SearchType="Auto",TimeLimit=60)
 
 #-----------------------------------------------------------------------------
 # Output
@@ -26,7 +26,7 @@ msol = model.mdl.solve(TimeLimit=10)
 
 if msol:
     print("Solution:")
-    solutionformatter.print_activities_to_console(msol,model.fixed,model.flex)
+    solutionformatter.append_solution(model.name,msol)
     solutionformatter.create_html_timetable(msol,model.name,model.courses,model.other)
 
 else:

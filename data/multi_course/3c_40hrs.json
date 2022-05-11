@@ -44,10 +44,10 @@
                     [8, "Lecture 1"],
                     [9, "Lecture 2"]],
                 "WED": [],
-                "THU": [],
-                "FRI": [
+                "THU": [
                     [12, "Lecture 3"],
                     [13, "Lecture 4"]],
+                "FRI": [],
                 "SAT": [],
                 "SUN": []
             },

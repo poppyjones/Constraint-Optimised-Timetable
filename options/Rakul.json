@@ -1,0 +1,29 @@
+{
+    "domain restrictions":{
+        "sleep start": 22,
+        "sleep end": 8,
+        "remove weekend": false,
+        "otherActivities": {
+            "MON": [],
+            "TUE": [
+                [16,"Gym"],[17,"Gym"]
+            ],
+            "WED": [],
+            "THU": [
+                [12,"Studylab"],[13,"Studylab"]
+            ],
+            "FRI": [],
+            "SAT": [],
+            "SUN": [
+                [13,"Gym"],[14,"Gym"]
+            ]
+        }
+    },
+    "preferences":{
+        "preferred hours": [[8,16],[20,22]],
+        "neighborhood"   : 24,
+        "max daily hours" : {
+            "hard": 7
+        }
+    }
+}

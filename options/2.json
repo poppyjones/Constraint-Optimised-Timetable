@@ -1,5 +1,7 @@
 {
-    "weekend":{
-        "hard": false
+    "domain restrictions":{
+    },
+    "preferences":{
+        "neighborhood"   : 24
     }
 }

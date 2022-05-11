@@ -1,23 +1,27 @@
 {
-    "description": "2 courses. One 10 hour course, with four fixed activities. One 20 hr fully flexible course (project or thesis)",
+    "description": "2 courses. One 20 hour course, with eight fixed activities. One 10 hr fully flexible course (project or thesis)",
     "courses": {
         "Course A": {
             "fixedActivities": {
-                "MON": [],
+                "MON": [
+                    [ 12, "Lecture 1" ],
+                    [ 13, "Lecture 2" ]],
                 "TUE": [],
                 "WED": [
-                    [ 10, "Lecture 1" ],
-                    [ 11, "Lecture 2" ]
+                    [ 10, "Lecture 2" ],
+                    [ 11, "Lecture 3" ],
+                    [ 14, "Lecture 4" ],
+                    [ 15, "Lecture 5" ]
                 ],
                 "THU": [],
                 "FRI": [
-                    [ 12, "Lecture 3"],
-                    [ 13, "Lecture 4"]
+                    [ 12, "Lecture 6"],
+                    [ 13, "Lecture 7"]
                 ],
                 "SAT": [],
                 "SUN": []
             },
-            "flexActivities": 6
+            "flexActivities": 12
         },
         "Course B": {
             "fixedActivities": {
@@ -29,7 +33,7 @@
                 "SAT": [],
                 "SUN": []
             },
-            "flexActivities": 20
+            "flexActivities": 10
         }
     }
 }

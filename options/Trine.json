@@ -1,0 +1,41 @@
+{
+    "domain restrictions":{
+        "sleep start": 18,
+        "sleep end": 8,
+        "remove weekend": false,
+        "otherActivities": {
+            "MON": [
+                [8, "Gym"],
+                [9, "Gym"],
+                [10, "Cafe Analog"],
+                [11, "Cafe Analog"]
+            ],
+            "TUE": [
+                [14, "Studylab"],
+                [15, "Studylab"],
+                [19,"Choir practice"],
+                [20,"Choir practice"]
+            ],
+            "WED": [
+                [20, "Gym"],
+                [21, "Gym"]
+            ],
+            "THU": [],
+            "FRI": [
+                [16, "Friday bar"],
+                [17, "Friday bar"],
+                [18, "Friday bar"]
+            ],
+            "SAT": [
+                [12, "Gym"],
+                [13, "Gym"]
+            ],
+            "SUN": []
+        }
+    },
+    "preferences":{
+        "disliked hours" : [[12,13]],
+        "preferred days" : ["THU"],
+        "disliked days"  : ["SAT","SUN"]
+    }
+}

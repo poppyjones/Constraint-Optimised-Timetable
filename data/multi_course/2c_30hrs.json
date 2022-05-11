@@ -5,8 +5,8 @@
             "fixedActivities": {
                 "MON": [],
                 "TUE": [
-                    [14, "Lecture 1"],
-                    [15, "Lecture 2"],
+                    [12, "Lecture 1"],
+                    [13, "Lecture 2"],
                     [16, "Excersises 1"],
                     [17, "Excersises 2"]],
                 "WED": [],
@@ -25,12 +25,12 @@
             "fixedActivities": {
                 "MON": [],
                 "TUE": [],
-                "WED": [
+                "WED": [],
+                "THU": [
                     [10, "Lecture 1"],
                     [11, "Lecture 2"],
                     [12, "Excersises 1"],
                     [13, "Excersises 2"]],
-                "THU": [],
                 "FRI": [],
                 "SAT": [],
                 "SUN": []
