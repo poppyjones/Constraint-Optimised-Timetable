@@ -26,7 +26,7 @@ msol = model.mdl.solve(SearchType="Auto",TimeLimit=60)
 
 if msol:
     print("Solution:")
-    solutionformatter.append_solution(model.name,msol)
+    #solutionformatter.append_solution(model.name,msol)
     solutionformatter.create_html_timetable(msol,model.name,model.courses,model.other)
 
 else:

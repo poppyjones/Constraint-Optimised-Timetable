@@ -18,7 +18,7 @@
         "disliked hours" : [],
         "preferred days"  : [],
         "disliked days"  : [],
-        "neighborhood"   : [],
+        "neighborhood"   : 0,
         "max daily hours" : {
             "hard": 0,
             "soft": 0

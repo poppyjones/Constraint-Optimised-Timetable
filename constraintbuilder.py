@@ -16,18 +16,17 @@ def hard_max_daily_hours(model,hrs):
     all_timeslots = model.all_timeslots 
     ACTIVITIES = model.ACTIVITIES
     for day in d.DAYS:
-        mdl.add(h.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,day) <= hrs)
+        mdl.add(h.sum_of_fixed_flex_in_day(mdl,all_timeslots,ACTIVITIES,day) <= hrs)
 
 #------------------
 # Soft Optional
 #------------------
 
 def min_max_day(mdl,all_timeslots,ACTIVITIES, day, minimize=True):
-    objective.append(h.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,day, -1 if minimize else 1))
-
-def min_max_weekend(mdl,all_timeslots,ACTIVITIES,minimize=True):
-    min_max_day(mdl,all_timeslots,ACTIVITIES, d.SAT, minimize)
-    min_max_day(mdl,all_timeslots,ACTIVITIES, d.SUN, minimize)
+    if minimize:
+        objective.append(24 - h.sum_of_fixed_flex_in_day(mdl,all_timeslots,ACTIVITIES,day))
+    else:
+        objective.append(h.sum_of_fixed_flex_in_day(mdl,all_timeslots,ACTIVITIES,day))
 
 def soft_max_daily_hours(model,hr_limit):
     mdl = model.mdl
@@ -35,17 +34,17 @@ def soft_max_daily_hours(model,hr_limit):
     ACTIVITIES = model.ACTIVITIES
     penalties = []
     for day in d.DAYS:
-        penalty = -5 * mdl.max(0,h.sum_of_activities_in_day(mdl,all_timeslots,ACTIVITIES,day) - hr_limit)
+        penalty = 5 * ((24-hr_limit) - mdl.max(0,h.sum_of_fixed_flex_in_day(mdl,all_timeslots,ACTIVITIES,day) - hr_limit))
         penalties.append(penalty)
     objective.extend(penalties)
 
 def add_preferred_hours(model, h0, h1):
     timeslots = h.get_timeslots_in_interval(model.all_timeslots,h0,h1)
-    objective.append(h.sum_of_activities_in_timeslots(model.mdl, timeslots, model.ACTIVITIES,5))
+    objective.append( 5 * h.sum_of_fixed_flex_in_timeslots(model.mdl, timeslots, model.ACTIVITIES))
 
 def add_disliked_hours(model, h0, h1):
     timeslots = h.get_timeslots_in_interval(model.all_timeslots,h0,h1)
-    objective.append(h.sum_of_activities_in_timeslots(model.mdl, timeslots, model.ACTIVITIES,-5))
+    objective.append( 5 * (len(timeslots) - h.sum_of_fixed_flex_in_timeslots(model.mdl, timeslots, model.ACTIVITIES)))
 
 def set_preferred_neighborhood(mdl,a0,activities,max_distance):
     dist_score =  [h.check_distance_within_boundary(mdl,a0, a1, max_distance) for a1 in activities]

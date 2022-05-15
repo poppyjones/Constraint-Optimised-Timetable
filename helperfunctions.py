@@ -14,17 +14,17 @@ def get_timeslots_in_interval(all_timeslots, h0, h1):
             ar.extend(all_timeslots[days_to_hrs[day]+h0: days_to_hrs[day]+24])
     return ar
 
-def sum_of_activities_in_timeslots(mdl, timeslots, ACTIVITIES, increment=1):
+def sum_of_fixed_flex_in_timeslots(mdl, timeslots, ACTIVITIES):
     counter = []
     for t in timeslots:
-        x = mdl.integer_var(domain = [0,increment])
-        mdl.add(((t <= ACTIVITIES) & (x == increment))
+        x = mdl.integer_var(domain = [0,1])
+        mdl.add(((t <= ACTIVITIES) & (x == 1))
                 | ((t > ACTIVITIES) & (x == 0)))
         counter.append(x)
     return sum(counter)
 
-def sum_of_activities_in_day(mdl, all_timeslots, ACTIVITIES, day, increment=1):
-    return sum_of_activities_in_timeslots(mdl, get_timeslots_of_day(all_timeslots, day), ACTIVITIES, increment)
+def sum_of_fixed_flex_in_day(mdl, all_timeslots, ACTIVITIES, day):
+    return sum_of_fixed_flex_in_timeslots(mdl, get_timeslots_of_day(all_timeslots, day), ACTIVITIES)
 
 def get_distance(mdl, a0, a1):
     dist = mdl.integer_var(domain = range(TIMESLOTS))

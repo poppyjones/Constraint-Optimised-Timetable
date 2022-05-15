@@ -20,7 +20,8 @@
         }
     },
     "preferences":{
-        "preferred hours": [[8,16],[20,22]],
+        "preferred hours": [[8,12],[13,16],[20,22]],
+        "disliked hours": [[12,13]],
         "neighborhood"   : 24,
         "max daily hours" : {
             "hard": 7

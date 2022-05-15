@@ -5,8 +5,8 @@
         "preferred days"  : [],
         "disliked days"  : [],
         "max daily hours" : {
-            "hard": 6,
-            "soft": 4
+            "hard": 7,
+            "soft": 5
         }
     }
 }

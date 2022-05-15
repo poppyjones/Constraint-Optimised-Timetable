@@ -43,7 +43,7 @@ def print_activities_by_course(msol,courses):
 
 def append_solution(name,msol):
     
-    with open("output/solutions.csv", "a") as f:
+    with open("output/results.csv", "a") as f:
         f.write(f"{name}, {msol.get_objective_values()[0]}, {msol.get_objective_bounds()[0]}, {msol.get_objective_gaps()[0]}, {msol.get_solve_time()}\n")
 
 def create_html_timetable(msol,name,courses,other, blocked = []):
